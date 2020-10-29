@@ -737,7 +737,6 @@ class PelotonReservationsFactory(PelotonAPI):
         """ Get  details by reservation_id
         """
 
-        #uri = '/api/reservation/{}'.format(reservation_id)
         uri = '/api/peloton/{}'.format(reservation_id)
         reservation = PelotonAPI._api_request(uri).json()
         return PelotonReservation(**reservation)
