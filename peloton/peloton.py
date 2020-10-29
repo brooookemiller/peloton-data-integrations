@@ -9,13 +9,12 @@ import decimal
 from datetime import datetime
 from datetime import timezone
 from datetime import date
-from .version import __version__
 
 # Set our base URL location
 _BASE_URL = 'https://api.onepeloton.com'
 
 # Being friendly, let Peloton know who we are (eg: not the web ui)
-_USER_AGENT = "peloton-client-library/{}".format(__version__)
+_USER_AGENT = "peloton-client-library/"
 
 
 def get_logger():
