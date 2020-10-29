@@ -698,3 +698,96 @@ class PelotonWorkoutMetricsFactory(PelotonAPI):
 
         res = cls._api_request(uri, params).json()
         return PelotonWorkoutMetrics(**res)
+
+
+class PelotonReservationsFactory(PelotonAPI):
+
+    @classmethod
+    def list(cls, results_per_page=10):
+        """ Return a list of PelotonReservation instances
+        """
+        if cls.user_id is None:
+            cls._create_api_session()
+
+        uri = '/api/user/{}/reservations'.format(cls.user_id)
+        params = {
+            'page': 0,
+            'limit': results_per_page
+        }
+
+        # Get our first page, which includes number of successive pages
+        res = cls._api_request(uri, params).json()
+
+        # Add this pages data to our return list
+        ret = [PelotonReservation(**reservation)
+               for reservation in res['data']]
+
+        # We've got page 0, so start with page 1
+        for i in range(1, res['page_count']):
+
+            params['page'] += 1
+            res = cls._api_request(uri, params).json()
+            [ret.append(PelotonReservation(**reservation))
+             for reservation in res['data']]
+
+        return ret
+
+    @classmethod
+    def get(cls, reservation_id):
+        """ Get  details by reservation_id
+        """
+
+        #uri = '/api/reservation/{}'.format(reservation_id)
+        uri = '/api/peloton/{}'.format(reservation_id)
+        reservation = PelotonAPI._api_request(uri).json()
+        return PelotonReservation(**reservation)
+
+
+class PelotonReservation(PelotonObject):
+    """ A read-only class that defines a reservation instance
+    """
+
+    def __init__(self, **kwargs):
+        """
+        """
+        self.id = kwargs.get('id')
+        self.ride_id = kwargs.get('ride_id')
+        self.scheduled_start = datetime.fromtimestamp(
+            kwargs.get('scheduled_start_time', 0), timezone.utc)
+        self.status = kwargs.get('status')
+
+    def __getattribute__(self, attr):
+        value = object.__getattribute__(self, attr)
+        return value
+
+    @classmethod
+    def get(cls, reservation_id):
+        """ Get a specific reservation
+        """
+        return PelotonReservationsFactory.get(reservation_id)
+
+    @classmethod
+    def list(cls):
+        """ Return a list of all workouts
+        """
+        return PelotonReservationsFactory.list()
+
+
+class PelotonRideFromReservation(PelotonObject):
+    """ A read-only class that defines a ride from the ride_id passed from a reservation"""
+
+    def __init__(self, **kwargs):
+
+        self.title = kwargs.get('title')
+        self.id = kwargs.get('id')
+        self.description = kwargs.get('description')
+        self.duration = kwargs.get('duration')
+
+    def __str__(self):
+        return self.title
+
+    @classmethod
+    def get(cls, ride_id):
+        uri = '/api/ride/{}'.format(ride_id)
+        ride = PelotonAPI._api_request(uri).json()
+        return PelotonRideFromReservation(**ride)
