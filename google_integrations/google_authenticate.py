@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-FILE = '/Users/brooke.miller/Documents/pelotonclientlibrary/google_integrations/g_cred.json'
+FILE = os.path.abspath('g_cred.json')
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
