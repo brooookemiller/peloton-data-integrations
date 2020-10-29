@@ -110,6 +110,7 @@ class PelotonException(Exception):
 class PelotonClientError(PelotonException):
     """ Client exception class
     """
+
     def __init__(self, message, response):
         super(PelotonException, self).__init__(self, message)
         self.message = message
@@ -119,6 +120,7 @@ class PelotonClientError(PelotonException):
 class PelotonServerError(PelotonException):
     """ Server exception class
     """
+
     def __init__(self, message, response):
         super(PelotonException, self).__init__(self, message)
         self.message = message
@@ -128,6 +130,7 @@ class PelotonServerError(PelotonException):
 class PelotonRedirectError(PelotonException):
     """ Maybe we'll see weird unexpected redirects?
     """
+
     def __init__(self, message, response):
         super(PelotonException, self).__init__(self, message)
         self.message = message
