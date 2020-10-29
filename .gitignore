@@ -104,3 +104,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Google Stuff
+g_cred.json
+.DS_Store
+token.pickle
