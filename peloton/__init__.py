@@ -11,6 +11,9 @@ from .peloton import PelotonMetric
 from .peloton import PelotonInstructor
 from .peloton import PelotonWorkoutSegment
 from .peloton import PelotonWorkoutFactory
+from .peloton import PelotonReservation
+from .peloton import PelotonReservationsFactory
+from .peloton import PelotonRideFromReservation
 
 _ALL_ = [
     "NotLoaded",
@@ -23,6 +26,9 @@ _ALL_ = [
     "PelotonMetric",
     "PelotonInstructor",
     "PelotonWorkoutSegment",
+    "PelotonReservation",
+    "PelotonRideFromReservation",
 
-    "PelotonWorkoutFactory"
+    "PelotonWorkoutFactory",
+    "PelotonReservationFactory"
 ]
