@@ -1,5 +1,5 @@
 cron:
 - description: "create cal events for peloton reservations"
-  url: main.py
+  url: /
   schedule: every 2 hours
   timezone: America/New_York
