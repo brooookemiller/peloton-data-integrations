@@ -10,11 +10,31 @@ from datetime import datetime
 from datetime import timezone
 from datetime import date
 
+from google.cloud import secretmanager
+
 # Set our base URL location
 _BASE_URL = 'https://api.onepeloton.com'
 
 # Being friendly, let Peloton know who we are (eg: not the web ui)
 _USER_AGENT = "peloton-client-library/"
+
+
+def access_gcp_secrets():
+    """
+    Access the payload for the given secret version if one exists. The version
+    can be a version number as a string (e.g. "5") or an alias (e.g. "latest").
+    """
+    client = secretmanager.SecretManagerServiceClient()
+
+    p_username = f"projects/131066749163/secrets/PELOTON_USERNAME/versions/1"
+    p_password = f"projects/131066749163/secrets/PELOTON_PASSWORD/versions/1"
+
+    u = client.access_secret_version(request={"name": p_username})
+    p = client.access_secret_version(request={"name": p_password})
+
+    u_payload = u.payload.data.decode("UTF-8")
+    p_payload = p.payload.data.decode("UTF-8")
+    return format(u_payload), format(p_payload)
 
 
 def get_logger():
@@ -39,14 +59,13 @@ try:
 
     import configparser
     parser = configparser.ConfigParser()
-    conf_path = os.environ.get("PELOTON_CONFIG", "~/.config/peloton")
-    parser.read(os.path.expanduser(conf_path))
 
     # Mandatory credentials
     PELOTON_USERNAME = os.environ.get("PELOTON_USERNAME") \
-        or parser.get("peloton", "username")
+        or access_gcp_secrets()[0]
+
     PELOTON_PASSWORD = os.environ.get("PELOTON_PASSWORD") \
-        or parser.get("peloton", "password")
+        or access_gcp_secrets()[1]
 
     # Additional option to show or hide warnings
     try:
