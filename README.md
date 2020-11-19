@@ -6,8 +6,8 @@ Peloton has an API that we can hit to leverage our data and make use of it.
 
 Features:
 
-- See your last completed ride and upcoming Peloton classes you've opted into (peloton_report.py)
-- Create Google calendar events for your upcoming Peloton classes (main.py)
+- See your last completed ride and upcoming Peloton classes you've opted into ([peloton_report.py][8])
+- Create Google calendar events for your upcoming Peloton classes ([create_reservation_events.py][7])
 
 ## Installation and Usage
 
@@ -87,7 +87,9 @@ Thanks to @geudrik, I leveraged this peloton-client-library repo (which actually
 
 [1]: https://developers.google.com/calendar/quickstart/python#step_1_turn_on_the
 [2]: https://developers.google.com/calendar/quickstart/python#step_4_run_the_sample
-[3]: https://www.youtube.com/watch?v=T_4cGEtHqUs # How to Deploy a Python app on Google Cloud
+[3]: https://www.youtube.com/watch?v=T_4cGEtHqUs
 [4]: console.cloud.google.com
 [5]: https://cloud.google.com/sdk/docs/install
 [6]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+[7]: https://github.com/brooookemiller/peloton-data-integrations/blob/master/create_reservation_events.py
+[8]: https://github.com/brooookemiller/peloton-data-integrations/blob/master/peloton_report.py
