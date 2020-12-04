@@ -2,7 +2,7 @@
 
 ## Overview
 
-Peloton has an API that we can hit to leverage our data and make use of it.
+I took the Peloton API and built some features around it to manage upcoming classes.
 
 Features:
 
