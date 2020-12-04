@@ -64,7 +64,7 @@ python create_reservation_events.py
 
 ### [Optional] Set up the infrastructure to run the scripts in Google Cloud
 
-If you're looking to automate this, let's set up cron job to run at whatever cadence you'd like using Google App Engine.
+If you're looking to automate this, set up a cron job to run this script at whatever cadence you'd like, using Google App Engine.
 
 [Watch this one-minute video][3] that summarizes how to deploy a Python app on Google Cloud.
 
