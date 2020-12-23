@@ -9,8 +9,8 @@ Features:
 - See your last completed ride and upcoming Peloton classes you've opted into ([peloton_report.py][8])
 - Create Google calendar events for your upcoming Peloton classes ([create_reservation_events.py][7])
 
-![UX Image](https://github.com/brooookemiller/peloton-data-integrations/photos/user_experience.jpg)
-![Architecture Image](https://github.com/brooookemiller/peloton-data-integrations/photos/architecture_overview.jpg)
+![UX Image](https://github.com/brooookemiller/peloton-data-integrations/blob/master/photos/user_experience.jpg)
+![Architecture Image](https://github.com/brooookemiller/peloton-data-integrations/blob/master/photos/architecture_overview.jpg)
 
 ## Installation and Usage
 
