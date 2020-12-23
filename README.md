@@ -2,8 +2,8 @@
 
 ## Overview
 
+I took the Peloton API and built some features around it to manage upcoming classes.
 Helps Type A's keep their priorities (Peloton) in check and synchronizes their calendar accordingly.
-Peloton has an API that we can hit to leverage our data and make use of it.
 
 Features:
 
@@ -14,7 +14,7 @@ Features:
 
 ### Clone this repository and install dependencies
 
-First things first: [clone][6] this repository. Open your code editor, navigate to the root folder, then run the below command to install the necessary dependences.
+Clone this repository and install the necessary dependences.
 
 ```bash
 pip install -r requirements.txt
@@ -22,9 +22,9 @@ pip install -r requirements.txt
 
 ### Authenticate to Peloton
 
-In order to access your Peloton data, you must authenticate to Peloton.
+In order to access your Peloton data, you must authenticate to Peloton. 
 
-Create the environment variables: `PELOTON_USERNAME` and `PELOTON_PASSWORD` for local testing.
+Create a `.env` file locally and add the following environment variables: 
 
 ```bash
 PELOTON_USERNAME = Your_Peloton_Username_Or_Email
@@ -41,9 +41,9 @@ This script will print your recent workouts and upcoming reservations to your te
 
 ### Authenticate to Google
 
-In order to read or write to your Google Calendar, you must authenticate to Google. Follow the [first step here][1] to turn on the Google Calendar API and download your client_secret.json file.
+In order to read or write to your Google Calendar, you must authenticate to Google. Follow the [first step here][1] to turn on the Google Calendar API and download your `client_secret.json` file.
 
-Once your client_secret.json file is created and stored locally, run:
+Once your `client_secret.json` file is created, run:
 
 ```bash
 python3 google_integrations/google_authenticate.py
@@ -53,7 +53,7 @@ Follow the [fourth step here][2] to log into your Google account and authorize a
 
 ### Test the feature script locally
 
-Now that you have your secrets created and your dependencies installed, it's time to test the real deal. (The real deal I'm referring to is the best feature included in this repo, which is to create Google calendar events for your upcoming reserved Peloton classes.)
+Now that you have your secrets created and your dependencies installed, it's time to test the real deal.
 
 Run the below command in your terminal:
 
@@ -63,11 +63,11 @@ python create_reservation_events.py
 
 .... and voila!
 
-### Set up the infrastructure to run the scripts in Google Cloud
+### [Optional] Set up the infrastructure to run the scripts in Google Cloud
 
-Now that you can run this script locally, you obviously don't want to run it locally all the time. So, let's set it up on a cron job to run at whatever cadence you like without having to even think about it.
+If you're looking to automate this, set up a cron job to run this script at whatever cadence you'd like, using Google App Engine.
 
-Google App Engine can accomplish this. [Watch this one-minute video][3] that summarizes how to deploy a Python app on Google Cloud.
+[Watch this one-minute video][3] that summarizes how to deploy a Python app on Google Cloud.
 
 - Visit the [Google Cloud console][4]
 - Create a project (ex: peloton-data-integrations)
@@ -80,7 +80,7 @@ gcloud app deploy
 ```
 
 - Create secrets in Google Secret Manager
-- Create the cron job based on the cadece you prefer
+- Create a cron job based on the cadence you prefer
 
 ## Peloton Client Library
 
