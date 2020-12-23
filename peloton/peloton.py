@@ -96,8 +96,7 @@ try:
 
 except Exception:
     get_logger().error(
-        "No `username` or `password` found in section `peloton` "
-        "in ~/.config/peloton\n"
+        "No `username` or `password` found locally (.env file) or via gcp"
         "Please ensure you specify one prior to utilizing the API\n")
 
 if SHOW_WARNINGS:
