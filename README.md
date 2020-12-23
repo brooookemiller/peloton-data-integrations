@@ -3,12 +3,14 @@
 ## Overview
 
 I took the Peloton API and built some features around it to manage upcoming classes.
-Helps Type A's keep their priorities (Peloton) in check and synchronizes their calendar accordingly.
 
 Features:
 
 - See your last completed ride and upcoming Peloton classes you've opted into ([peloton_report.py][8])
 - Create Google calendar events for your upcoming Peloton classes ([create_reservation_events.py][7])
+
+![UX Image](https://github.com/brooookemiller/peloton-data-integrations/photos/user_experience.jpg)
+![Architecture Image](https://github.com/brooookemiller/peloton-data-integrations/photos/architecture_overview.jpg)
 
 ## Installation and Usage
 
@@ -22,9 +24,9 @@ pip install -r requirements.txt
 
 ### Authenticate to Peloton
 
-In order to access your Peloton data, you must authenticate to Peloton. 
+In order to access your Peloton data, you must authenticate to Peloton.
 
-Create a `.env` file locally and add the following environment variables: 
+Create a `.env` file locally and add the following environment variables:
 
 ```bash
 PELOTON_USERNAME = Your_Peloton_Username_Or_Email
