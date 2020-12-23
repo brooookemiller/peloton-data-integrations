@@ -3,6 +3,7 @@
 ## Overview
 
 I took the Peloton API and built some features around it to manage upcoming classes.
+Helps Type A's keep their priorities (Peloton) in check and synchronizes their calendar accordingly.
 
 Features:
 
