@@ -4,3 +4,4 @@ google-auth-oauthlib
 google-cloud-secret-manager
 gunicorn==19.6.0
 Flask==1.1.2
+python-decouple
