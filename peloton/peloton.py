@@ -11,6 +11,7 @@ from datetime import timezone
 from datetime import date
 
 from google.cloud import secretmanager
+from decouple import config
 
 # Set our base URL location
 _BASE_URL = 'https://api.onepeloton.com'
@@ -61,10 +62,10 @@ try:
     parser = configparser.ConfigParser()
 
     # Mandatory credentials
-    PELOTON_USERNAME = os.environ.get("PELOTON_USERNAME") \
+    PELOTON_USERNAME = config('PELOTON_USERNAME') \
         or access_gcp_secrets()[0]
 
-    PELOTON_PASSWORD = os.environ.get("PELOTON_PASSWORD") \
+    PELOTON_PASSWORD = config('PELOTON_PASSWORD') \
         or access_gcp_secrets()[1]
 
     # Additional option to show or hide warnings
