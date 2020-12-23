@@ -2,6 +2,7 @@
 
 ## Overview
 
+Helps Type A's keep their priorities (Peloton) in check and synchronizes their calendar accordingly.
 Peloton has an API that we can hit to leverage our data and make use of it.
 
 Features:
