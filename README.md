@@ -1,18 +1,19 @@
 # Leverage Your Peloton Data
 
-## Overview
-
 I took the Peloton API and built some features around it to manage upcoming classes.
 
-Features:
+## Features
 
-- See your last completed ride and upcoming Peloton classes you've opted into ([peloton_report.py][8])
 - Create Google calendar events for your upcoming Peloton classes ([create_reservation_events.py][7])
-
 ![UX Image](https://github.com/brooookemiller/peloton-data-integrations/blob/master/photos/user_experience.jpg)
+- See your last completed ride and upcoming Peloton classes you've opted into ([peloton_report.py][8])
+
+### Built With
+
+Take a peek at the APIs and tools utilized:
 ![Architecture Image](https://github.com/brooookemiller/peloton-data-integrations/blob/master/photos/architecture_overview.jpg)
 
-## Installation and Usage
+## Getting Started
 
 ### Clone this repository and install dependencies
 
@@ -86,7 +87,8 @@ gcloud app deploy
 
 ## Peloton Client Library
 
-Thanks to @geudrik, I leveraged this peloton-client-library repo (which actually has [API docs]((https://github.com/geudrik/peloton-api/blob/master/API_DOCS.md)!). Super appreciative of these docs and the foundation he set up.
+Thanks to @geudrik, I leveraged [this peloton-client-library repo][9], which actually has very useful [Peloton API docs][10]! 
+Super appreciative of these docs and the foundation he set up.
 
 [1]: https://developers.google.com/calendar/quickstart/python#step_1_turn_on_the
 [2]: https://developers.google.com/calendar/quickstart/python#step_4_run_the_sample
@@ -96,3 +98,5 @@ Thanks to @geudrik, I leveraged this peloton-client-library repo (which actually
 [6]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 [7]: https://github.com/brooookemiller/peloton-data-integrations/blob/master/create_reservation_events.py
 [8]: https://github.com/brooookemiller/peloton-data-integrations/blob/master/peloton_report.py
+[9]: https://github.com/geudrik/peloton-client-library
+[10]: https://github.com/geudrik/peloton-api/blob/master/API_DOCS.md
